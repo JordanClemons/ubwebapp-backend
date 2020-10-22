@@ -1,4 +1,3 @@
-  
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
@@ -20,8 +19,10 @@ connection.once('open', () => {
 })
 
 const usersRouter = require('./routes/users');
+const classesRouter = require('./routes/classes');
 
 app.use('/users', usersRouter);
+app.use('/classes',classesRouter);
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);

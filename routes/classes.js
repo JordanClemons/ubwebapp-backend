@@ -13,13 +13,29 @@ router.route('/').get((req, res) => {
     const grade = req.body.grade;
     const attendance = req.body.attendance;
     const meetingTime = req.body.meetingTime;
+    const courseDocuments = req.body.courseDocuments;
 
-    const newClasses = new Class({className,assignments,grade,attendance,meetingTime});
+    const newClasses = new Class({className,assignments,grade,attendance,meetingTime, courseDocuments});
 
     newClasses.save()
         .then(()=> res.json('Course added!'))
         .catch(err => res.status(400).json('Error: '+ err));
 });
 
+router.route('/update/:id').post((req, res) => {
+  Class.findById(req.params.id)
+    .then(classes => {
+      classes.className = req.body.className;
+      classes.assignments = req.body.assignments;
+      classes.grade = req.body.grade;
+      classes.attendance = req.body.attendance;
+      classes.meetingTime = req.body.meetingTime;
+      classes.courseDocuments = req.body.courseDocuments;
+      classes.save()
+        .then(() => res.json('Class updated!'))
+        .catch(err => res.status(400).json('Error: ' + err));
+    })
+    .catch(err => res.status(400).json('Error: ' + err));
+});
 module.exports = router;
   

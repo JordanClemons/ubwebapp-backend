@@ -9,7 +9,9 @@ const classSchema = new Schema({
     grade: {type : Number},
     attendance: {type : Boolean},
     meetingTime: {type: String},
-    courseDocuments: {type: Array}
+    courseDocuments: {type: Array},
+    rooms: {type: Array},    //The different 'chats' each student can in
+    messages: {type: Array}     //The actual messages a student sends
 })
 const Class = mongoose.model('Class', classSchema);
 

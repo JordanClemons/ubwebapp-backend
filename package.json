@@ -11,8 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.20.0",
-    "bcrypt": "^5.0.0",
-    "bcrypt-nodejs": "0.0.3",
+    "bcryptjs": "^2.4.3",
     "bootstrap": "^4.5.3",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
